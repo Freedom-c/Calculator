@@ -1,0 +1,64 @@
+package paket1;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Window.Type;
+import javax.swing.JTextField;
+import java.awt.Font;
+
+public class Calculator extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Calculator frame = new Calculator();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Calculator() {
+		setType(Type.UTILITY);
+		setTitle("Hesap Makinesi");
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 460);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel screen = new JPanel();
+		screen.setBounds(10, 10, 416, 70);
+		contentPane.add(screen);
+		screen.setLayout(null);
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.BOLD, 23));
+		textField.setBounds(0, 10, 416, 50);
+		screen.add(textField);
+		textField.setColumns(10);
+		
+		JPanel control = new JPanel();
+		control.setBounds(10, 102, 416, 311);
+		contentPane.add(control);
+	}
+}
